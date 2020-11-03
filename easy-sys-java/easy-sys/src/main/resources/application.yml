@@ -1,0 +1,29 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: easy-sys
+  #main:
+      #allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
+  datasource:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/easy?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
+      username: fantasy
+      password: fantasy
+  thymeleaf:
+       cache: false
+       mode: HTML
+# mybatis 配置
+mybatis:
+#  type-aliases-package: com.boot.shiro.entity   # 所有Entity别名类所在包
+  mapper-locations: classpath:com/fantasy/easy/**/mapper/*.xml      # mapper映射文件
+logging:
+  level:
+    root: info
+    com.fantasy: debug
+easy-sys:
+  noAuthPath: /sys/env/info,/sys/user/login,/sys/user/hello
+  JWT-Key: newtrekWangfdsfsfsfsdfsdfdfsfffhthtrte 
+  demo: true # 是否演示模式
+  demoSuperUser: fantasy # 演示模式下的超级用户
+  demoNotAllowAuth: save,delete,add # 演示模式不允许通过的权限
